@@ -12,5 +12,5 @@ while True:
         break
     data = nickname + ': ' + data
     sock.sendto(data.encode(), ('localhost', 9090))
-    data = sock.recvfrom(1024)
-    print(f'Данные от сервера: {data[0].decode()}, {data[1]}')
+    reply_msg = sock.recv(1024).decode('utf-8')
+    print('сообщение сервера: ', reply_msg)
